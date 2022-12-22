@@ -5,7 +5,7 @@ A weather app [mini project] that lets the user look up the current weather of t
 **🚀Demo**
 ![Screenshot_20221223_000748](https://user-images.githubusercontent.com/102789104/209206042-bf8b59c1-0785-489b-a5d0-e68aacc756f2.png)
 
-**Deployment**
+**Deployment** https://whorajk.github.io/weather-app-javascript/
 
 **🛠 Skills**
 -Javascript [fetch , async/await] -HTML -CSS
