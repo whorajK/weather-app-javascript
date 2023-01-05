@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Weather App</title>
-		<link rel="stylesheet" href="style.css" />
-		<script src="script.js" defer></script>
-	</head>
-	<body>
-		<article class="wrapper">
-			<div class="search_box">
-				<form id="form">
-					<input type="text" id="search-el" placeholder="Enter city..." />
-					<button type="submit" id="search-btn">Search</button>
-				</form>
-			</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <nav class="header--nav flex">
+            <h2 class="nav--h2">Weather App</h2>
+            <button class="nav--search-btn"><i class="bi bi-search"></i></button>
+          </nav>
+    </header>
 
-			<div class="wrapper__container hidden">
-				<div class="icon">
-					<img id="image" alt="cloud image" />
-				</div>
-				<div class="temp"><span></div>
-				<div class="condition"></div>
-				<div class="location"></div>
-			</div>
-		</article>
-	</body>
+    <!-- MAIN SECTION -->
+    <main class="main">
+        <div class="main--container flex-column">
+            <section class="weather-info flex">
+                <h1 class="weather-info--h1">16&deg;</h1>
+                <div>
+                <h2 class="weather-info--h2">London</h1>
+                <p class="weather-info--p">
+                    <span>06:10</span>
+                    <span>Monday</span>
+                    <span>9 Sept '19</span>
+                </p>
+                </div>
+                <div class="weather-info--icon flex-column">
+                    <i class="bi bi-clouds"></i>
+                    <span>Cloudy</span>
+                </div>
+            </section>
+        </div>
+
+        <section class="search-box hidden">
+            <form id="form">
+                <input type="text" id="search" placeholder="Search city..">
+            </form>
+
+            <div class="weather-details">
+                <div id="clouds">
+                    Cloudy
+                    <span>66%</span>
+                </div>
+                <div id="humidity">
+                    Humidity
+                    <span>6%</span>
+                </div>
+                <div id="wind">
+                    Wind
+                    <span>7km/hr</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <h3>@Weather App</h3>
+    </footer>
+  </body>
 </html>
