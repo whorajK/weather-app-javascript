@@ -1,5 +1,5 @@
 // VARIABLES
-const APIKEY = "769ad78edf98585e77c0d5953fe7f395";
+const APIKEY = "";
 const form = document.querySelector("#form");
 const inputEl = document.querySelector("#search-el");
 
