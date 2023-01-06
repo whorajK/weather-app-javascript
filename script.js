@@ -1,43 +1,64 @@
+const APIKEY = "769ad78edf98585e77c0d5953fe7f395";
+
 // VARIABLES
-const APIKEY = "";
 const form = document.querySelector("#form");
-const inputEl = document.querySelector("#search-el");
+const searchInputEl = document.querySelector("#search");
 
-const iconEl = document.querySelector("#image");
-const tempEl = document.querySelector(".temp");
-const conditionEl = document.querySelector(".condition");
-const locationEl = document.querySelector(".location");
+const tempEl = document.querySelector("#temp");
+const locationEl = document.querySelector("#location");
+const iconEl = document.querySelector("#icon");
+const timeEl = document.querySelector("#time");
+const dateEl = document.querySelector("#date");
 
+const conditionEl = document.querySelector("#condition");
+const humidityEl = document.querySelector("#humidity");
+const windSpeedEl = document.querySelector("#wind-speed");
+
+// SUBMITS USER REQUEST
 form.addEventListener("submit", (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	if (inputEl.value == "") {
-		alert("Enter a city to search!");
-	} else {
-		getWeather();
-
-		const hidden = document.querySelector(".wrapper__container");
-		hidden.classList.remove("hidden");
-	}
+  let city = searchInputEl.value;
+  if (city == "") {
+    alert("enter city");
+  } else {
+    getWeatherData(city);
+  }
 });
 
-// GETS WEATHER DATA FROM API
-async function getWeather() {
-	const city = inputEl.value;
-	const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=metric`;
+// GETS WEATHER DATA FROM THE API
+let getWeatherData = async (city) => {
+  await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=metric`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      let { temp, humidity } = data["main"];
+      let { description, icon } = data.weather[0];
+      let nameText = data["name"];
+      let { speed } = data["wind"];
 
-	await fetch(URL)
-		.then((resp) => resp.json())
-		.then((data) => {
-			const { temp } = data["main"];
-			const location = data.name;
-			const { description, icon } = data.weather[0];
+      tempEl.innerText = `${temp.toFixed(1)}°C`;
+      let src = `http://openweathermap.org/img/wn/${icon}@4x.png`;
+      iconEl.src = src;
+      locationEl.innerText = nameText;
+      conditionEl.innerText = description;
+      humidityEl.innerText = `${humidity}%`;
+      windSpeedEl.innerText = `${speed} kmph`;
+    });
+};
 
-			const iconUrl = `http://openweathermap.org/img/wn/${icon}@4x.png`;
+// let dayandTime
+// const weekday = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
 
-			iconEl.src = iconUrl;
-			tempEl.textContent = `${temp.toFixed(1)}°C `;
-			locationEl.textContent = location;
-			conditionEl.textContent = `${description}`;
-		});
-}
+// let date = new Date();
+// // dateEl.innerText = date.getDay()
+// console.log(weekday[date.getDay()]);

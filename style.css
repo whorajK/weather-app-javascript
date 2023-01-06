@@ -34,6 +34,7 @@ button {
   color: inherit;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: bold;
+  outline: none;
   transition: all ease 0.2s;
 }
 
@@ -60,7 +61,8 @@ button:focus {
 
 /* WRAPPER SECTION */
 .wrapper {
-  box-shadow: 0 1px 3px #d3d3d3;
+  border-radius: 1em;
+  box-shadow: 0 1px 3px #6e6e6e;
   padding: 3rem;
 }
 
@@ -92,9 +94,18 @@ button:focus {
   font-size: clamp(2.5rem, 4.5vw, 3rem);
 }
 
-.wrapper--weather-box i {
-  font-size: clamp(5rem, 7.5vw, 5.5rem);
-  margin: 2rem 0;
+.icon {
+  background-color: var(--accent);
+  border-radius: 1em;
+  height: 30%;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.icon img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .wrapper--weather-box h3 {
