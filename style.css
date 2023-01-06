@@ -8,11 +8,9 @@
 }
 
 :root {
-  --color-white: #fefefe;
-  --color-black: #1b1a1a;
-  --accent: #ff5900;
-  --transparent: #ffffff6a;
-  --transparent2: #ffffff9e;
+  --color-light: #fefefe;
+  --color-dark: #0b0b0b;
+  --accent: #fcf33d;
 }
 
 /* GENERAL STYLES */
@@ -22,166 +20,87 @@ html {
 }
 
 body {
-  background-image: url(https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: var(--color-white);
+  align-items: center;
+  color: var(--color-dark);
+  display: flex;
+  justify-content: center;
   min-height: 100vh;
-  position: relative;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+input,
 button {
   background: none;
   border: none;
   color: inherit;
-  cursor: pointer;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: bold;
-  right: 0;
-  padding: 1rem;
-  position: absolute;
-  z-index: 999;
   transition: all ease 0.2s;
-  top: 0;
+}
+
+input {
+  border-bottom: 3px solid #d3d3d3;
+  padding: 0.35rem;
+}
+
+input:hover,
+input:focus {
+  border-bottom: 3px solid var(--accent);
+}
+
+button {
+  cursor: pointer;
+  padding: 0.65rem 0.75rem;
 }
 
 button:hover,
 button:focus {
   background: var(--accent);
+  color: var(--color-light);
 }
 
-/* UTILITY CLASSES */
-.flex {
+/* WRAPPER SECTION */
+.wrapper {
+  box-shadow: 0 1px 3px #d3d3d3;
+  padding: 3rem;
+}
+
+.wrapper--search-box {
+  margin-bottom: 2rem;
+}
+
+.wrapper--weather-box {
   align-items: center;
-  display: flex;
-}
-
-.flex-column {
   display: flex;
   flex-direction: column;
 }
 
-.hidden {
-  display: none !important;
-}
-/* HEADER SECTION */
-.header {
-  padding: 1rem;
-}
-
-.header--nav {
-  justify-content: space-between;
-}
-
-.nav--h2 {
-  font-size: clamp(1rem, 3.5vw, 2rem);
-}
-
-/* MAIN SECTION */
-.main--container {
-  align-items: flex-start;
-  justify-content: flex-end;
-  height: 80vh;
-}
-
-.weather-info {
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  padding: 1rem;
-  margin: 2rem 4rem;
-}
-
-.weather-info--h1 {
-  font-size: clamp(1.4rem, 10vw, 5.5rem);
-}
-
-.weather-info div {
-  margin: 0 1rem;
-}
-
-.weather-info--icon i {
-  font-size: clamp(1.3rem, 6vw, 3rem);
-}
-
-.weather-info--icon span {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-}
-
-/* FOOTER SECTION */
-.footer {
-  bottom: 0;
-  position: fixed;
-  width: 100vw;
-}
-.footer h3 {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  padding: 1rem;
-  text-align: center;
-}
-
-/* search section */
-.search-box {
-  background-color: var(--transparent);
-  color: var(--color-black);
-  right: 0;
-  height: 100%;
-  padding: 5rem 2rem 2rem 2rem;
-  position: absolute;
-  top: 0;
-}
-
-.search-box input {
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid var(--color-black);
-  color: inherit;
-  font-size: 1rem;
-  outline: none;
-  padding: 0.5rem;
-}
-
-.search-box input::placeholder {
-  color: var(--color-black);
-}
-
-.search-box input:hover {
-  border-bottom: 3px solid var(--accent);
-}
-
 .weather-details {
-  color: var(--color-white);
-  font-weight: bold;
-  margin: 2rem auto auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 2rem 0 0 0;
+  width: 80%;
 }
 
 .weather-details div {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  margin-bottom: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* MEDIA QUERIES */
-@media screen and (max-width: 769px) {
-  .search-box {
-    align-items: center;
-    background-color: var(--transparent2);
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-  }
-
-  .weather-details {
-    color: var(--color-black);
-    margin-top: 5rem;
-  }
+.wrapper--weather-box h1 {
+  font-size: clamp(2.5rem, 4.5vw, 3rem);
 }
 
-@media screen and (max-width: 499px) {
-  .weather-info {
-    margin: 0;
-  }
+.wrapper--weather-box i {
+  font-size: clamp(5rem, 7.5vw, 5.5rem);
+  margin: 2rem 0;
+}
+
+.wrapper--weather-box h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.wrapper--weather-box h4 {
+  font-size: 1rem;
 }
