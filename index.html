@@ -10,13 +10,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <script src="config.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <article class="wrapper">
       <div class="wrapper--search-box">
         <form id="form">
-          <input type="text" placeholder="Search City.." id="search" />
+          <input
+            type="text"
+            placeholder="Search City.."
+            id="search"
+            autocomplete="off"
+          />
           <button type="submit">
             <i class="bi bi-search"></i>
           </button>
@@ -24,25 +30,29 @@
       </div>
 
       <div class="wrapper--weather-box">
-        <h1 id="temp"></h1>
-        <div class="icon">
-          <img src="" alt="" id="icon" />
-        </div>
-        <h3 id="location"></h3>
-        <h4 id="date">Monday 10sept 2022</h4>
+        <h2 class="msg">The info will be displayed here</h2>
+        <div class="weather-box--container hidden">
+          <h1 id="temp"></h1>
+          <div class="icon">
+            <img src="" alt="" id="icon" />
+          </div>
+          <h3 id="location"></h3>
+          <h4 id="date">Monday 10sept 2022</h4>
+          <h4 id="time"></h4>
 
-        <div class="weather-details">
-          <div class="Condition">
-            <span>Condition</span>
-            <span id="condition"></span>
-          </div>
-          <div class="humidity">
-            <span>Humidity</span>
-            <span id="humidity"></span>
-          </div>
-          <div class="wind">
-            <span>Wind speed</span>
-            <span id="wind-speed"></span>
+          <div class="weather-details">
+            <div class="Condition">
+              <span>Condition</span>
+              <span id="condition"></span>
+            </div>
+            <div class="humidity">
+              <span>Humidity</span>
+              <span id="humidity"></span>
+            </div>
+            <div class="wind">
+              <span>Wind speed</span>
+              <span id="wind-speed"></span>
+            </div>
           </div>
         </div>
       </div>

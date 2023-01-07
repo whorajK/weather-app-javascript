@@ -21,6 +21,8 @@ html {
 
 body {
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--color-dark);
   display: flex;
   justify-content: center;
@@ -41,6 +43,7 @@ button {
 input {
   border-bottom: 3px solid #d3d3d3;
   padding: 0.35rem;
+  text-transform: capitalize;
 }
 
 input:hover,
@@ -59,10 +62,21 @@ button:focus {
   color: var(--color-light);
 }
 
+/* UTILITY */
+.hidden {
+  display: none !important;
+}
+
+.bg {
+  background-color: var(--accent);
+}
+
 /* WRAPPER SECTION */
 .wrapper {
+  background-color: var(--color-light);
   border-radius: 1em;
   box-shadow: 0 1px 3px #6e6e6e;
+  max-width: 500px;
   padding: 3rem;
 }
 
@@ -70,7 +84,12 @@ button:focus {
   margin-bottom: 2rem;
 }
 
-.wrapper--weather-box {
+.msg {
+  color: #adadad;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.weather-box--container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -95,17 +114,19 @@ button:focus {
 }
 
 .icon {
-  background-color: var(--accent);
   border-radius: 1em;
-  height: 30%;
+  display: flex;
+  height: 40%;
+  justify-content: center;
   margin-bottom: 1rem;
-  width: 100%;
+  width: 80%;
+  transition: all ease 1s;
 }
 
 .icon img {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
+  height: 65%;
+  object-fit: contain;
+  width: 65%;
 }
 
 .wrapper--weather-box h3 {
